@@ -1,47 +1,23 @@
 <!DOCTYPE html>
-<!-- ===================================================================
-     CARGOO - Landing page (página única de divulgação)
-     IDEIA: marketplace de FRETE DE RETORNO. Conecta empresas que
-     precisam enviar carga com caminhoneiros que estão voltando vazios.
-     Resultado: "nenhum caminhão volta vazio".
-
-     Esta versão está dividida em 3 arquivos:
-       - index.html  -> a estrutura (este arquivo)
-       - style.css   -> o visual (cores, fontes, layout)
-       - script.js   -> as interações (menu, abas, formulário)
-==================================================================== -->
-<html lang="pt-BR"><!-- idioma da página: português do Brasil -->
+<html lang="pt-BR">
 
 <head>
-  <!-- charset: permite acentos (ç, ã, é) sem virar caractere estranho -->
   <meta charset="UTF-8">
-  <!-- viewport: faz o site se ajustar à tela do celular (responsivo) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- título que aparece na aba do navegador -->
   <title>CARGOO · Nenhum caminhão volta vazio</title>
 
-  <!-- Fontes do Google Fonts:
-       Michroma = fonte geométrica do logo (escolhida no PDF da marca)
-       Barlow   = fonte de leitura (inspirada em placas de rodovia) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- arquivo de estilos externo (todo o CSS está no style.css) -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ============== CABEÇALHO ============== -->
   <header>
     <div class="header-interno">
-      <!-- logo: "CARG" preto + "OO" vermelho (como no PDF) -->
       <div class="logo">CARG<span>OO</span></div>
-
-      <!-- botão que abre/fecha o menu no celular (chama o JS) -->
       <button class="btn-menu" onclick="alternarMenu()">☰</button>
-
-      <!-- menu de navegação (links que rolam até cada seção) -->
       <nav id="menu">
         <a href="#problema">O problema</a>
         <a href="#como">Como funciona</a>
@@ -51,30 +27,19 @@
     </div>
   </header>
 
-  <!-- ============== HERO (frase de impacto) ============== -->
   <section class="hero">
-    <!-- slogan da marca (vem do PDF) -->
     <p class="eyebrow">CONECTA · TRANSPORTA · ENTREGA RESULTADOS</p>
-
-    <!-- título principal: a promessa central do produto -->
     <h1>Nenhum caminhão<br>volta <span class="destaque">vazio</span>.</h1>
-
-    <!-- a faixa amarela tracejada da rodovia (elemento visual da marca) -->
     <div class="faixa-estrada"></div>
-
-    <!-- explicação curta da ideia -->
     <p>
       O CARGOO conecta empresas que precisam enviar cargas a caminhoneiros
       que já estão voltando para casa. A volta deixa de ser prejuízo e vira
       frete cheio: mais renda para o motorista e custo menor para quem contrata.
     </p>
-
-    <!-- dois botões = os dois lados do marketplace -->
     <a href="#contato" class="botao botao-vermelho">Sou empresa</a>
     <a href="#contato" class="botao botao-contorno">Sou caminhoneiro</a>
   </section>
 
-  <!-- ============== O PROBLEMA ============== -->
   <section class="problema" id="problema">
     <div class="container">
       <p class="rotulo">O problema</p>
@@ -89,21 +54,16 @@
     </div>
   </section>
 
-  <!-- ============== COMO FUNCIONA (abas) ============== -->
   <section id="como">
     <div class="container">
       <p class="rotulo">Como funciona</p>
       <h2>Simples para os dois lados</h2>
-
-      <!-- botões que trocam de aba (chamam o JS, passando qual aba abrir) -->
       <div class="abas">
         <button class="aba-botao ativa" id="botao-empresa"
                 onclick="abrirAba('empresa')">Para empresas</button>
         <button class="aba-botao" id="botao-caminhoneiro"
                 onclick="abrirAba('caminhoneiro')">Para caminhoneiros</button>
       </div>
-
-      <!-- conteúdo da aba EMPRESA (começa visível) -->
       <div class="aba-conteudo mostrar" id="aba-empresa">
         <ul class="passos">
           <li><b>1.</b> Publique sua carga, a rota e a data.</li>
@@ -111,8 +71,6 @@
           <li><b>3.</b> Pague menos aproveitando a volta e acompanhe a entrega.</li>
         </ul>
       </div>
-
-      <!-- conteúdo da aba CAMINHONEIRO (começa escondida) -->
       <div class="aba-conteudo" id="aba-caminhoneiro">
         <ul class="passos">
           <li><b>1.</b> Cadastre seu veículo e suas rotas habituais.</li>
@@ -123,13 +81,10 @@
     </div>
   </section>
 
-  <!-- ============== DIFERENCIAIS ============== -->
   <section class="diferenciais" id="diferenciais">
     <div class="container">
       <p class="rotulo">Por que o CARGOO</p>
       <h2 style="color:#fff">Diferente dos murais de frete</h2>
-
-      <!-- 4 cartões com os principais diferenciais -->
       <div class="cartoes">
         <div class="cartao">
           <h3>Resolve a volta</h3>
@@ -151,15 +106,11 @@
     </div>
   </section>
 
-  <!-- ============== CONTATO / LISTA DE ESPERA ============== -->
   <section class="contato" id="contato">
     <div class="container">
       <p class="rotulo">Participar</p>
       <h2>Faça parte do lançamento</h2>
       <p>Cadastre-se e avisamos você assim que o CARGOO estiver no ar.</p>
-
-      <!-- Formulário simples. NÃO usamos a tag <form> de propósito:
-           ao clicar no botão, o JS monta uma mensagem e abre o WhatsApp. -->
       <div class="formulario">
         <label for="nome">Nome</label>
         <input id="nome" type="text" placeholder="Seu nome">
@@ -173,7 +124,6 @@
         <label for="whats">WhatsApp</label>
         <input id="whats" type="text" placeholder="(44) 90000-0000">
 
-        <!-- ao clicar, chama a função enviarWhatsApp() lá no script.js -->
         <button class="botao botao-vermelho" onclick="enviarWhatsApp()">
           Quero participar
         </button>
@@ -181,15 +131,12 @@
     </div>
   </section>
 
-  <!-- ============== RODAPÉ ============== -->
   <footer>
     <div class="logo">CARG<span style="color:var(--vermelho)">OO</span></div>
     <p class="slogan">CONECTA · TRANSPORTA · ENTREGA RESULTADOS</p>
     <p>Maringá · PR — © 2026 CARGOO</p>
   </footer>
 
-  <!-- arquivo de JavaScript externo (todas as funções estão no script.js).
-       Fica no fim do <body> para o HTML já existir quando o JS rodar. -->
   <script src="script.js"></script>
 </body>
 </html>
